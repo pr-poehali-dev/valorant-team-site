@@ -41,6 +41,7 @@ interface NewsItem {
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [newComment, setNewComment] = useState('');
+  const [activeTab, setActiveTab] = useState('gallery');
   
   const [gallery, setGallery] = useState<GalleryImage[]>([
     {
@@ -137,7 +138,7 @@ const Index = () => {
             </div>
           </header>
 
-          <Tabs defaultValue="gallery" className="w-full">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-8 bg-card/50 backdrop-blur-sm valorant-border p-1">
               <TabsTrigger value="gallery" className="font-display">
                 <Icon name="Image" size={18} className="mr-2" />
